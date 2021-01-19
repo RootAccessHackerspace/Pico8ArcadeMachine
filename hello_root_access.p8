@@ -4,9 +4,12 @@ __lua__
 -- hello world
 -- by zep, michael 🐱hrisco
 
-music(0)
+-- music(0)
 frame=0
 ra_sprite=33
+-- movement of root access logo
+on_screen_x=0
+on_screen_y=0
 
 function _draw()
 	cls()
@@ -62,14 +65,38 @@ function _draw()
 		x = 8+i*8     +cos(t1/90)*3
 		y = 38+(col-7)+cos(t1/50)*5
 		pal(7,col)
-		spr(ra_sprite, x+34, y+60)
+		spr(ra_sprite, x+34+on_screen_x, y+60+on_screen_y)
 		 
  end
 	
 	print("rootaccess.org",
 	 30, 70, 14) 
 	print("welcome to the space",
-	 20, 80, 12) 
+	 20, 80, 12)
+	 
+	 if(btn(1)) then
+	  --print("➡️ button was pressed!",
+	  --10, 100, 12)
+	  on_screen_x = on_screen_x + 1
+	 end
+	 
+	 if(btn(0)) then
+	  --print("⬅️ button was pressed!",
+	  --10, 100, 12)
+	  on_screen_x = on_screen_x - 1
+	 end
+	 
+	 if(btn(2)) then
+	  --print("⬆️ button was pressed!",
+	  --10, 100, 12)
+	  on_screen_y = on_screen_y - 1
+	 end
+	  
+	 if(btn(3)) then
+	  --print("⬇️ button was pressed!",
+	  --10, 100, 12)
+	  on_screen_y = on_screen_y + 1
+	 end 
 end
 
 
