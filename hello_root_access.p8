@@ -11,6 +11,13 @@ ra_sprite=33
 on_screen_x=0
 on_screen_y=0
 
+--something for fun!!
+function _hidden_secret_one()
+ 	print("hidden page!!",
+	 0, 20, 10)
+	 spr(49, 25, 40, 8, 8)
+end
+
 function _draw()
 	cls()
 	frame=frame+1
@@ -27,9 +34,6 @@ function _draw()
 	 frame=0
 	end
 	
-	--print(frame, 30, 100, 20)
-	--print(ra_sprite, 30, 110, 20)
-	
 	
 	ra_sprite=ra_sprite+1
 	if(ra_sprite > 36) then
@@ -38,7 +42,6 @@ function _draw()
 	
 	-- for each color
 	-- (from pink -> white)
-	
 	for col = 14,7,-1 do
 		
 		-- for each letter
@@ -96,6 +99,11 @@ function _draw()
 	  --print("⬇️ button was pressed!",
 	  --10, 100, 12)
 	  on_screen_y = on_screen_y + 1
+	 end
+	 
+	 if(btn(4)) then
+	  cls()
+	  _hidden_secret_one()
 	 end 
 end
 
